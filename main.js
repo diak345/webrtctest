@@ -3,6 +3,7 @@ var ws = WebSocket.Server;
 var wss = new ws({port: 3001});
 
 wss.on("connection", function (ws) {
+    console.log("Connected");
     ws.on("message", function (message, isBinary) {
         wss.clients.forEach(function each(client) {
             if (ws === client) {
