@@ -222,7 +222,10 @@
     // -- add local stream --
     if (localStream) {
       console.log('Adding local stream...');
-      peer.addStream(localStream);
+      for (const track of localStream.getTracks()){
+      peer.addTrack(track, localStream);
+    }
+      
     }
     else {
       console.warn('no local stream, but continue.');
